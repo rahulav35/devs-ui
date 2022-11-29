@@ -1,6 +1,48 @@
-import React from "react";
+import React, { useContext } from "react";
+import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getFirestore,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore";
+import { app, auth } from "../Firebaseconfig";
+import { Usercontext } from "./contexts/UserContext";
 
 function Firstpage() {
+  const { user, setUser } = useContext(Usercontext);
+  async function SignInWithGithub() {
+    // const auth = getAuth();
+
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider).then(async (result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const docRef = await addDoc(collection(getFirestore(), "users"), {
+        email: result.user.email,
+        name: result.user.displayName ?? "",
+        bio: "",
+        contributions: 0,
+        photoURL: result.user.photoURL ?? "",
+        role: "",
+        linkedin: "",
+        twitter: "",
+        instagram: "",
+        website: "",
+        github: "",
+        facebook: "",
+      });
+      console.log(result.user.displayName);
+      const Userdoc = doc(getFirestore(), "users", `${docRef.id}`);
+
+      const unsub = onSnapshot(Userdoc, (doc) => {
+        setUser(doc.data());
+      });
+    });
+  }
   return (
     <div className=" h-[100vh] w-[100vw]  bg-bgmobileimage sm:bg-bgimage  flex flex-col sm:flex-row justify-evenly sm:pt-[10%] pt-[-10%] box-border ">
       <div className=" h-[40%] sm:h-[90%] w-[95%] sm:w-[45%] flex flex-col justify-evenly place-items-end sm:items-center ">
@@ -27,7 +69,10 @@ function Firstpage() {
           {" "}
           Build Your Career With Us By Solving Tasks
         </h1>
-        <div className="h-[15%] sm:h-[9%] w-[83%] sm:w-[70%] mt-5 sm:mt-1 self-center border-2 bblackorder-black rounded-[30px] bg-black flex justify-center items-center order-0 sm:order-2">
+        <div
+          className="h-[15%] sm:h-[9%] w-[83%] sm:w-[70%] mt-5 sm:mt-1 self-center border-2 bblackorder-black rounded-[30px] bg-black flex justify-center items-center order-0 sm:order-2"
+          onClick={SignInWithGithub}
+        >
           <h1 className="text-white text-[16px]">Authurize with Github</h1>
           <img
             className="h-[65%] sm:h-[57%] w-[7%] sm:w-[5%] ml-2"
