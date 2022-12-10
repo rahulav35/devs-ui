@@ -6,6 +6,7 @@ import Profiledetails from "../../components/Profiledetails";
 function Profile() {
   const { user, setUser } = useContext(Usercontext);
   console.log(user);
+
   return (
     <div className="h-[100vh] w-[100vw]  flex flex-col justify-start items-center mt-[5%] overflow-scroll">
       <Header />
@@ -35,8 +36,8 @@ function Profile() {
             </div>
           </div>
         </div>
-        <div className="h-[100%] w-[39%]  flex flex-col justify-start items-start">
-          <h1 className="text-3xl my-2">{user.displayName}</h1>
+        <div className="h-[100%] w-[39%]    flex flex-col justify-start items-start">
+          <h1 className="text-3xl my-2">{user.name}</h1>
 
           <Profiledetails
             image={"/Assets/lightmode/cv.png"}

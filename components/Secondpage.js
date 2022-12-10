@@ -2,7 +2,7 @@ import React from "react";
 
 function Secondpage() {
   return (
-    <div className=" h-[100vh] w-[100vw]  flex flex-col justify-evenly items-center pt-[20%] sm:pt-[9%] ">
+    <div className="h-[100vh] w-[100vw]  flex flex-col justify-evenly items-center pt-[20%] sm:pt-[9%]overflow-x-hidden ">
       <div className="h-[15%] sm:h-[30%] w-[94%]  rounded-[20px] bg-discordcolor overflow-hidden flex flex-col justify-evenly items-center relative">
         <img
           className="h-[100%] sm:h-[250%] w-[100%] sm:w-[45%] object-cover "
