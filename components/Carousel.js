@@ -18,8 +18,8 @@ function Carouselpage({ level, levelno, title, description }) {
           dynamicHeight={true}
           className="max-h-[10vh] w-[100%] rounded-3xl shadow-lg shadow-black"
         >
-          {images.map((url) => {
-            return <img src={url} />;
+          {images.map((url, index) => {
+            return <img key={index} src={url} />;
           })}
         </Carousel>
       </div>
