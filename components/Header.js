@@ -84,48 +84,48 @@ function Header() {
               user.photoURL ?? "/Assets/images/default.png"
             })`,
           }}
-          className="bg-no-repeat bg-cover bg-center rounded-[100%] h-[40px] w-[40px]  "
+          className="bg-no-repeat bg-cover bg-center rounded-[100%] h-[40px] w-[40px]"
         >
-          {visible && (
-            <div className="fixed h-[18vh] w-[15vw] bg-white rounded-lg boder-2 border-black right-16  top-16 flex flex-col justify-evenly items-center">
-              <div className="h-[50%] w-[90%]  flex flex-row justify-between items-center">
-                <img
-                  className="h-[60%] w-[15%]"
-                  src="/Assets/lightmode/home(1).png"
-                  alt=""
-                />
-                <h1 className="text-lg">Home</h1>
-              </div>
-
-              {user.email && (
-                <div
-                  onClick={() => router.push("/profile")}
-                  className="h-[50%] w-[90%]  flex flex-row justify-between items-center"
-                >
-                  <img
-                    className="h-[60%] w-[15%]"
-                    src="/Assets/lightmode/log-out.png"
-                    alt=""
-                  />
-                  <h1 className="text-lg">Profile</h1>
-                </div>
-              )}
-
-              <div
-                onClick={user.email ? Logout : SignInWithGithub}
-                className="h-[50%] w-[90%]  flex flex-row justify-between items-center"
-              >
-                <img
-                  className="h-[60%] w-[15%]"
-                  src="/Assets/lightmode/user.png"
-                  alt=""
-                />
-                <h1 className="text-lg">{user.email ? "Log Out" : "Log In"}</h1>
-              </div>
-            </div>
-          )}
+          {/* {visible && ( */}
         </div>
       </div>
+      <div className="fixed right-16  top-16 h-[18vh] w-[15vw] bg-white rounded-lg boder-2 border-black  flex flex-col justify-evenly items-center">
+        <div className="h-[50%] w-[90%]  flex flex-row justify-between items-center">
+          <img
+            className="h-[60%] w-[15%]"
+            src="/Assets/lightmode/home(1).png"
+            alt=""
+          />
+          <h1 className="text-lg">Home</h1>
+        </div>
+
+        {user.email && (
+          <div
+            onClick={() => router.push("/profile")}
+            className="h-[50%] w-[90%]  flex flex-row justify-between items-center"
+          >
+            <img
+              className="h-[60%] w-[15%]"
+              src="/Assets/lightmode/log-out.png"
+              alt=""
+            />
+            <h1 className="text-lg">Profile</h1>
+          </div>
+        )}
+
+        <div
+          onClick={user.email ? Logout : SignInWithGithub}
+          className="h-[50%] w-[90%]  flex flex-row justify-between items-center"
+        >
+          <img
+            className="h-[60%] w-[15%]"
+            src="/Assets/lightmode/user.png"
+            alt=""
+          />
+          <h1 className="text-lg">{user.email ? "Log Out" : "Log In"}</h1>
+        </div>
+      </div>
+      {/* )} */}
     </div>
   );
 }

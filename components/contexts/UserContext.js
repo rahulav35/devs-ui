@@ -13,7 +13,7 @@ export const Usercontext = React.createContext(null);
 function Usercontextprovider(props) {
   const [user, setUser] = useState({});
   const [uid, setUid] = useState("");
-  const value = { user, setUser };
+  const value = { user, setUser, uid };
   const [data, setData] = useState([]);
 
   onAuthStateChanged(auth, (user) => {

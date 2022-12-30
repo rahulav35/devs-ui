@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div className="w-[100vw] min-h-[100vh] flex flex-col justify-center items-center overflow-x-hidden ">
+    <div className="relative w-[100vw] min-h-[100vh] flex flex-col justify-center items-center overflow-x-hidden ">
       <Header />
       <Firstpage />
       <Secondpage />

@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { app, auth } from "../Firebaseconfig";
 import { Usercontext } from "./contexts/UserContext";
+import Header from "./Header";
 
 function Firstpage() {
   const { user, setUser } = useContext(Usercontext);
@@ -45,7 +46,7 @@ function Firstpage() {
   }
   return (
     <div className=" overflow-x-hidden h-[100vh] w-[100vw]  bg-bgmobileimage sm:bg-bgimage  flex flex-col sm:flex-row justify-evenly sm:pt-[10%] pt-[-10%] box-border ">
-      <div className=" h-[40%] sm:h-[90%] w-[95%] sm:w-[45%] flex flex-col justify-evenly place-items-end sm:items-center ">
+      <div className=" h-[40%] sm:h-[90%] w-[95%] sm:w-[45%] flex flex-col justify-evenly place-items-end sm:items-center">
         <h1 className=" text-[25px] sm:text-4xl max-w-[76%] sm:max-w-[65%] text-center ">
           {" "}
           A problem well started is a problem half solved
